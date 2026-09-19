@@ -2,419 +2,479 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>KOMPLI | Learner Dashboard</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      line-height: 1.5;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      background: #ffffff;
-      border-bottom: 2px solid #e30613;
-      padding: 18px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: 2px;
-      color: #e30613;
-    }
-
-    .tagline {
-      font-size: 10px;
-      color: #111111;
-      letter-spacing: 1.5px;
-      margin-top: 2px;
-      font-weight: 600;
-    }
-
-    .demo-badge {
-      background: #e30613;
-      color: #ffffff;
-      padding: 7px 13px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-right: 15px;
-    }
-
-    .profile {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .profile-name {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #e30613;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-    }
-
-    /* =========================
-       MAIN
-    ========================= */
-
-    main {
-      max-width: 1200px;
-      margin: auto;
-      padding: 45px 25px;
-    }
-
-    .welcome {
-      margin-bottom: 30px;
-    }
-
-    .welcome-label {
-      color: #e30613;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
-    }
-
-    .welcome h1 {
-      font-size: 34px;
-      margin-bottom: 7px;
-      color: #111111;
-    }
-
-    .welcome p {
-      color: #555555;
-      font-size: 16px;
-    }
-
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-bottom: 42px;
-    }
-
-    .stat {
-      background: #ffffff;
-      border: 1px solid #dddddd;
-      border-top: 4px solid #e30613;
-      padding: 25px;
-      border-radius: 10px;
-    }
-
-    .stat-number {
-      font-size: 32px;
-      font-weight: 900;
-      color: #e30613;
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      color: #444444;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    /* =========================
-       SECTION
-    ========================= */
-
-    section {
-      margin-bottom: 42px;
-    }
-
-    section h2 {
-      font-size: 23px;
-      margin-bottom: 18px;
-      color: #111111;
-    }
-
-    .section-label {
-      color: #e30613;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      margin-bottom: 5px;
-    }
-
-    /* =========================
-       COURSES
-    ========================= */
-
-    .course {
-      background: #ffffff;
-      border: 1px solid #dddddd;
-      border-left: 5px solid #e30613;
-      border-radius: 10px;
-      padding: 21px;
-      margin-bottom: 13px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-
-      transition: 0.2s ease;
-    }
-
-    .course:hover {
-      border-color: #e30613;
-      box-shadow: 0 5px 18px rgba(227, 6, 19, 0.08);
-    }
-
-    .course-info h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .course-info p {
-      color: #666666;
-      font-size: 13px;
-    }
-
-    .status {
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      margin-bottom: 5px;
-    }
-
-    .pending {
-      color: #e30613;
-    }
-
-    .completed {
-      color: #111111;
-    }
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    button,
-    .primary,
-    .secondary {
-
-      border-radius: 7px;
-      padding: 11px 20px;
-      font-weight: 800;
-      font-size: 13px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .primary {
-      background: #e30613;
-      color: #ffffff;
-      border: 2px solid #e30613;
-    }
-
-    .primary:hover {
-      background: #ffffff;
-      color: #e30613;
-    }
-
-    .secondary {
-      background: #ffffff;
-      color: #e30613;
-      border: 2px solid #e30613;
-    }
-
-    .secondary:hover {
-      background: #e30613;
-      color: #ffffff;
-    }
-
-    /* =========================
-       AI SECTION
-    ========================= */
-
-    .ai {
-      background: #e30613;
-      color: #ffffff;
-      border-radius: 12px;
-      padding: 32px;
-    }
-
-    .ai h2 {
-      color: #ffffff;
-      margin-bottom: 8px;
-    }
-
-    .ai p {
-      color: #ffffff;
-      margin-bottom: 20px;
-      opacity: 0.95;
-    }
-
-    .ai-box {
-      display: flex;
-      gap: 10px;
-    }
-
-    .ai-box input {
-      flex: 1;
-      padding: 14px;
-      border-radius: 7px;
-      border: 2px solid #ffffff;
-      font-size: 14px;
-      outline: none;
-    }
-
-    .ai-box button {
-      background: #ffffff;
-      color: #e30613;
-      border: 2px solid #ffffff;
-    }
-
-    .ai-box button:hover {
-      background: #e30613;
-      color: #ffffff;
-    }
-
-    /* =========================
-       DEMO NOTICE
-    ========================= */
-
-    .demo-notice {
-      background: #ffffff;
-      border: 2px solid #e30613;
-      border-radius: 10px;
-      padding: 18px 20px;
-      margin-bottom: 35px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .demo-icon {
-      width: 38px;
-      height: 38px;
-      background: #e30613;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-    }
-
-    .demo-notice strong {
-      display: block;
-      color: #e30613;
-      margin-bottom: 2px;
-    }
-
-    .demo-notice span {
-      font-size: 13px;
-      color: #444444;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 2px solid #e30613;
-      text-align: center;
-      padding: 28px;
-      color: #555555;
-      font-size: 12px;
-    }
-
-    footer strong {
-      color: #e30613;
-      letter-spacing: 2px;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-      header {
-        padding: 15px 20px;
-      }
-
-      .demo-badge {
-        display: none;
-      }
-
-      .profile-name {
-        display: none;
-      }
-
-      main {
-        padding: 30px 18px;
-      }
-
-      .welcome h1 {
-        font-size: 28px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .course {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .course .primary,
-      .course .secondary {
-        width: 100%;
-        text-align: center;
-      }
-
-      .ai-box {
-        flex-direction: column;
-      }
-
-      .ai-box button {
-        width: 100%;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KOMPLI | Compliance Training Platform</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#ffffff;
+color:#111111;
+}
+
+button,
+input{
+font-family:inherit;
+}
+
+.hidden{
+display:none!important;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+height:74px;
+border-bottom:2px solid #e30613;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 6%;
+background:#ffffff;
+}
+
+.logo{
+font-size:27px;
+font-weight:900;
+letter-spacing:2px;
+color:#e30613;
+}
+
+.tagline{
+font-size:9px;
+letter-spacing:1.5px;
+font-weight:bold;
+margin-top:2px;
+}
+
+.demo-badge{
+background:#e30613;
+color:#ffffff;
+padding:7px 13px;
+border-radius:20px;
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.auth-page{
+min-height:calc(100vh - 74px);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px 20px;
+background:#ffffff;
+}
+
+.auth-container{
+width:100%;
+max-width:440px;
+}
+
+.auth-box{
+border:1px solid #dddddd;
+border-top:5px solid #e30613;
+padding:35px;
+border-radius:12px;
+background:#ffffff;
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+.auth-title{
+font-size:28px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.auth-subtitle{
+font-size:14px;
+color:#666666;
+margin-bottom:28px;
+}
+
+.demo-notice{
+border:1px solid #e30613;
+padding:12px;
+border-radius:7px;
+font-size:12px;
+margin-bottom:22px;
+}
+
+.demo-notice strong{
+color:#e30613;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+.form-group label{
+display:block;
+font-size:12px;
+font-weight:800;
+margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select{
+width:100%;
+padding:13px;
+border:1px solid #cccccc;
+border-radius:7px;
+font-size:14px;
+outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+border:2px solid #e30613;
+}
+
+.password-box{
+position:relative;
+}
+
+.password-box input{
+padding-right:70px;
+}
+
+.show-password{
+position:absolute;
+right:10px;
+top:10px;
+background:#ffffff;
+border:0;
+color:#e30613;
+font-size:11px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.auth-button{
+width:100%;
+padding:14px;
+background:#e30613;
+color:#ffffff;
+border:2px solid #e30613;
+border-radius:7px;
+font-weight:800;
+cursor:pointer;
+font-size:13px;
+}
+
+.auth-button:hover{
+background:#ffffff;
+color:#e30613;
+}
+
+.remember{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:12px;
+margin-bottom:20px;
+}
+
+.switch{
+text-align:center;
+margin-top:20px;
+font-size:13px;
+color:#666666;
+}
+
+.switch button{
+background:none;
+border:0;
+color:#e30613;
+font-weight:800;
+cursor:pointer;
+}
+
+.forgot{
+text-align:right;
+margin-top:-10px;
+margin-bottom:18px;
+}
+
+.forgot button{
+background:none;
+border:0;
+color:#e30613;
+font-size:11px;
+cursor:pointer;
+}
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard{
+display:none;
+}
+
+.dashboard-main{
+max-width:1200px;
+margin:auto;
+padding:40px 25px;
+}
+
+.dashboard-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.logout{
+background:#ffffff;
+border:2px solid #e30613;
+color:#e30613;
+padding:9px 17px;
+border-radius:7px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.logout:hover{
+background:#e30613;
+color:#ffffff;
+}
+
+.welcome-label{
+font-size:11px;
+font-weight:800;
+color:#e30613;
+letter-spacing:1.5px;
+margin-bottom:7px;
+}
+
+.welcome h1{
+font-size:32px;
+margin-bottom:7px;
+}
+
+.welcome p{
+color:#666666;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+margin-bottom:40px;
+}
+
+.stat{
+border:1px solid #dddddd;
+border-top:4px solid #e30613;
+padding:24px;
+border-radius:10px;
+}
+
+.stat-number{
+font-size:32px;
+font-weight:900;
+color:#e30613;
+}
+
+.stat-label{
+font-size:13px;
+font-weight:600;
+margin-top:4px;
+}
+
+.section-label{
+font-size:11px;
+font-weight:800;
+color:#e30613;
+letter-spacing:1.5px;
+margin-bottom:5px;
+}
+
+section{
+margin-bottom:40px;
+}
+
+section h2{
+font-size:23px;
+margin-bottom:18px;
+}
+
+.course{
+border:1px solid #dddddd;
+border-left:5px solid #e30613;
+border-radius:10px;
+padding:20px;
+margin-bottom:12px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+}
+
+.status{
+font-size:10px;
+font-weight:900;
+letter-spacing:1px;
+margin-bottom:5px;
+}
+
+.pending{
+color:#e30613;
+}
+
+.completed{
+color:#111111;
+}
+
+.course h3{
+font-size:17px;
+margin-bottom:5px;
+}
+
+.course p{
+font-size:13px;
+color:#666666;
+}
+
+.primary{
+background:#e30613;
+color:#ffffff;
+border:2px solid #e30613;
+padding:11px 20px;
+border-radius:7px;
+font-weight:800;
+cursor:pointer;
+text-decoration:none;
+font-size:12px;
+}
+
+.primary:hover{
+background:#ffffff;
+color:#e30613;
+}
+
+.secondary{
+background:#ffffff;
+color:#e30613;
+border:2px solid #e30613;
+padding:11px 20px;
+border-radius:7px;
+font-weight:800;
+cursor:pointer;
+}
+
+.secondary:hover{
+background:#e30613;
+color:#ffffff;
+}
+
+/* =========================
+   AI
+========================= */
+
+.ai{
+background:#e30613;
+color:#ffffff;
+padding:30px;
+border-radius:12px;
+}
+
+.ai h2{
+color:#ffffff;
+}
+
+.ai p{
+margin-bottom:20px;
+}
+
+.ai-input{
+display:flex;
+gap:10px;
+}
+
+.ai-input input{
+flex:1;
+padding:14px;
+border:2px solid #ffffff;
+border-radius:7px;
+}
+
+.ai-input button{
+background:#ffffff;
+color:#e30613;
+border:2px solid #ffffff;
+padding:12px 20px;
+border-radius:7px;
+font-weight:800;
+cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+border-top:2px solid #e30613;
+text-align:center;
+padding:25px;
+font-size:12px;
+color:#555555;
+}
+
+footer strong{
+color:#e30613;
+letter-spacing:2px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.course{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.course .primary,
+.course .secondary{
+width:100%;
+text-align:center;
+}
+
+.ai-input{
+flex-direction:column;
+}
+
+.dashboard-top{
+align-items:flex-start;
+gap:15px;
+}
+
+}
+
+</style>
 </head>
 
 
@@ -427,390 +487,804 @@
 
 <header>
 
-  <div>
+<div>
+<div class="logo">KOMPLI</div>
+<div class="tagline">LEARN. COMPLY. GROW.</div>
+</div>
 
-    <div class="logo">
-      KOMPLI
-    </div>
-
-    <div class="tagline">
-      LEARN. COMPLY. GROW.
-    </div>
-
-  </div>
-
-
-  <div class="profile">
-
-    <div class="demo-badge">
-      DEMO CLASS
-    </div>
-
-    <div class="profile-name">
-      Demo Learner
-    </div>
-
-    <div class="avatar">
-      DL
-    </div>
-
-  </div>
+<div class="demo-badge">
+DEMO ENVIRONMENT
+</div>
 
 </header>
 
 
 <!-- =========================
-     MAIN
+     LOGIN / REGISTER
 ========================= -->
 
-<main>
+<div id="authPage" class="auth-page">
 
+<div class="auth-container">
 
-  <!-- DEMO NOTICE -->
+<div class="auth-box">
 
-  <div class="demo-notice">
 
-    <div class="demo-icon">
-      D
-    </div>
+<!-- LOGIN -->
 
-    <div>
+<div id="loginForm">
 
-      <strong>
-        DEMO CLASS
-      </strong>
+<div class="auth-title">
+Welcome to KOMPLI
+</div>
 
-      <span>
-        You are viewing the KOMPLI demonstration learning environment.
-      </span>
+<div class="auth-subtitle">
+Compliance Learning & Management Platform
+</div>
 
-    </div>
+<div class="demo-notice">
+<strong>DEMO ENVIRONMENT</strong><br>
+This is a demonstration account environment.
+</div>
 
-  </div>
 
+<div class="form-group">
 
-  <!-- WELCOME -->
+<label>
+EMAIL ADDRESS
+</label>
 
-  <div class="welcome">
+<input
+id="loginEmail"
+type="email"
+placeholder="you@organization.com"
+>
 
-    <div class="welcome-label">
-      LEARNER DASHBOARD
-    </div>
+</div>
 
-    <h1>
-      Welcome back.
-    </h1>
 
-    <p>
-      Complete your mandatory compliance training and stay compliant.
-    </p>
+<div class="form-group">
 
-  </div>
+<label>
+PASSWORD
+</label>
 
+<div class="password-box">
 
-  <!-- STATS -->
+<input
+id="loginPassword"
+type="password"
+placeholder="Enter password"
+>
 
-  <div class="stats">
+<button
+class="show-password"
+onclick="togglePassword('loginPassword')"
+type="button"
+>
+SHOW
+</button>
 
-    <div class="stat">
+</div>
 
-      <div class="stat-number">
-        4
-      </div>
+</div>
 
-      <div class="stat-label">
-        Assigned Courses
-      </div>
 
-    </div>
+<div class="remember">
 
+<input
+type="checkbox"
+id="remember"
+>
 
-    <div class="stat">
+<label for="remember">
+Remember me
+</label>
 
-      <div class="stat-number">
-        75%
-      </div>
+</div>
 
-      <div class="stat-label">
-        Compliance Complete
-      </div>
 
-    </div>
+<button
+class="auth-button"
+onclick="login()"
+>
+LOGIN
+</button>
 
 
-    <div class="stat">
+<div class="forgot">
 
-      <div class="stat-number">
-        3
-      </div>
+<button onclick="forgotPassword()">
+Forgot password?
+</button>
 
-      <div class="stat-label">
-        Certificates
-      </div>
+</div>
 
-    </div>
 
-  </div>
+<div class="switch">
 
+New to KOMPLI?
 
-  <!-- COURSES -->
+<button onclick="showRegister()">
+Create an account
+</button>
 
-  <section>
+</div>
 
-    <div class="section-label">
-      MY LEARNING
-    </div>
+</div>
 
-    <h2>
-      Mandatory Training
-    </h2>
 
+<!-- REGISTER -->
 
-    <!-- POSH -->
+<div id="registerForm" class="hidden">
 
-    <div class="course">
+<div class="auth-title">
+Create your KOMPLI account
+</div>
 
-      <div class="course-info">
+<div class="auth-subtitle">
+Register for compliance learning
+</div>
 
-        <div class="status pending">
-          ● PENDING
-        </div>
 
-        <h3>
-          POSH Awareness
-        </h3>
+<div class="form-group">
 
-        <p>
-          Workplace Prevention of Sexual Harassment
-        </p>
+<label>
+FULL NAME
+</label>
 
-      </div>
+<input
+id="regName"
+type="text"
+placeholder="Your full name"
+>
 
+</div>
 
-      <a
-        class="primary"
-        href="https://classroom.google.com/u/5/c/ODczMjExNTE5Mjcy"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        START COURSE
-      </a>
 
-    </div>
+<div class="form-group">
 
+<label>
+WORK EMAIL
+</label>
 
-    <!-- CYBER -->
+<input
+id="regEmail"
+type="email"
+placeholder="you@organization.com"
+>
 
-    <div class="course">
+</div>
 
-      <div class="course-info">
 
-        <div class="status pending">
-          ● IN PROGRESS
-        </div>
+<div class="form-group">
 
-        <h3>
-          Cyber Security Awareness
-        </h3>
+<label>
+ORGANIZATION
+</label>
 
-        <p>
-          Safe digital behaviour and information security
-        </p>
+<input
+id="regOrg"
+type="text"
+placeholder="Organization name"
+>
 
-      </div>
+</div>
 
 
-      <button
-        class="primary"
-        onclick="comingSoon('Cyber Security Awareness')"
-      >
-        CONTINUE
-      </button>
+<div class="form-group">
 
-    </div>
+<label>
+ROLE
+</label>
 
+<select id="regRole">
 
-    <!-- CODE OF CONDUCT -->
+<option>Employee</option>
+<option>Teacher</option>
+<option>Manager</option>
+<option>Administrator</option>
 
-    <div class="course">
+</select>
 
-      <div class="course-info">
+</div>
 
-        <div class="status completed">
-          ● COMPLETED
-        </div>
 
-        <h3>
-          Code of Conduct & Ethics
-        </h3>
+<div class="form-group">
 
-        <p>
-          Professional behaviour and workplace ethics
-        </p>
+<label>
+PASSWORD
+</label>
 
-      </div>
+<div class="password-box">
 
+<input
+id="regPassword"
+type="password"
+placeholder="Create password"
+>
 
-      <button
-        class="secondary"
-        onclick="certificate()"
-      >
-        CERTIFICATE
-      </button>
+<button
+class="show-password"
+onclick="togglePassword('regPassword')"
+type="button"
+>
+SHOW
+</button>
 
-    </div>
+</div>
 
+</div>
 
-    <!-- DATA PRIVACY -->
 
-    <div class="course">
+<button
+class="auth-button"
+onclick="register()"
+>
+CREATE ACCOUNT
+</button>
 
-      <div class="course-info">
 
-        <div class="status completed">
-          ● COMPLETED
-        </div>
+<div class="switch">
 
-        <h3>
-          Data Privacy Awareness
-        </h3>
+Already registered?
 
-        <p>
-          Responsible handling of personal information
-        </p>
+<button onclick="showLogin()">
+Login
+</button>
 
-      </div>
+</div>
 
+</div>
 
-      <button
-        class="secondary"
-        onclick="certificate()"
-      >
-        CERTIFICATE
-      </button>
 
-    </div>
+</div>
 
-  </section>
+</div>
 
-
-  <!-- AI -->
-
-  <section class="ai">
-
-    <div class="section-label" style="color:#ffffff;">
-      KOMPLI AI
-    </div>
-
-    <h2>
-      Ask Kompli AI
-    </h2>
-
-    <p>
-      Your compliance learning assistant.
-      Ask questions about policies, training or compliance.
-    </p>
-
-
-    <div class="ai-box">
-
-      <input
-        id="aiQuestion"
-        type="text"
-        placeholder="Example: Explain POSH in simple language..."
-      >
-
-
-      <button
-        onclick="askAI()"
-      >
-        ASK AI
-      </button>
-
-    </div>
-
-  </section>
-
-
-</main>
+</div>
 
 
 <!-- =========================
-     FOOTER
+     DASHBOARD
 ========================= -->
+
+<div id="dashboard" class="dashboard">
+
+
+<div class="dashboard-main">
+
+
+<div class="dashboard-top">
+
+<div>
+
+<div class="welcome-label">
+LEARNER DASHBOARD
+</div>
+
+<div class="welcome">
+
+<h1 id="welcomeName">
+Welcome back.
+</h1>
+
+<p>
+Complete your mandatory compliance training and stay compliant.
+</p>
+
+</div>
+
+</div>
+
+
+<button
+class="logout"
+onclick="logout()"
+>
+LOGOUT
+</button>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-number">
+4
+</div>
+
+<div class="stat-label">
+Assigned Courses
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+75%
+</div>
+
+<div class="stat-label">
+Compliance Complete
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-number">
+3
+</div>
+
+<div class="stat-label">
+Certificates
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TRAINING -->
+
+<section>
+
+<div class="section-label">
+MY LEARNING
+</div>
+
+<h2>
+Mandatory Training
+</h2>
+
+
+<div class="course">
+
+<div>
+
+<div class="status pending">
+● PENDING
+</div>
+
+<h3>
+POSH Awareness
+</h3>
+
+<p>
+Workplace Prevention of Sexual Harassment
+</p>
+
+</div>
+
+
+<a
+class="primary"
+href="https://classroom.google.com/u/5/c/ODczMjExNTE5Mjcy"
+target="_blank"
+rel="noopener"
+>
+START COURSE
+</a>
+
+</div>
+
+
+<div class="course">
+
+<div>
+
+<div class="status pending">
+● IN PROGRESS
+</div>
+
+<h3>
+Cyber Security Awareness
+</h3>
+
+<p>
+Safe digital behaviour and information security
+</p>
+
+</div>
+
+
+<button
+class="primary"
+onclick="comingSoon('Cyber Security Awareness')"
+>
+CONTINUE
+</button>
+
+</div>
+
+
+<div class="course">
+
+<div>
+
+<div class="status completed">
+● COMPLETED
+</div>
+
+<h3>
+Code of Conduct & Ethics
+</h3>
+
+<p>
+Professional behaviour and workplace ethics
+</p>
+
+</div>
+
+
+<button
+class="secondary"
+onclick="certificate()"
+>
+CERTIFICATE
+</button>
+
+</div>
+
+
+<div class="course">
+
+<div>
+
+<div class="status completed">
+● COMPLETED
+</div>
+
+<h3>
+Data Privacy Awareness
+</h3>
+
+<p>
+Responsible handling of personal information
+</p>
+
+</div>
+
+
+<button
+class="secondary"
+onclick="certificate()"
+>
+CERTIFICATE
+</button>
+
+</div>
+
+</section>
+
+
+<!-- AI -->
+
+<section class="ai">
+
+<div class="section-label" style="color:#ffffff;">
+KOMPLI AI
+</div>
+
+<h2>
+Ask Kompli AI
+</h2>
+
+<p>
+Your compliance learning assistant.
+Ask questions about your training, policies or compliance topics.
+</p>
+
+
+<div class="ai-input">
+
+<input
+id="aiQuestion"
+type="text"
+placeholder="Example: Explain POSH in simple language..."
+>
+
+<button onclick="askAI()">
+ASK AI
+</button>
+
+</div>
+
+</section>
+
+
+</div>
+
+</div>
+
 
 <footer>
 
-  <strong>
-    KOMPLI
-  </strong>
+<strong>KOMPLI</strong>
 
-  <br><br>
+<br><br>
 
-  Compliance Learning & Management Platform
+Compliance Learning & Management Platform
 
-  <br>
+<br>
 
-  © 2026 KOMPLI
+© 2026 KOMPLI
 
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
-  function comingSoon(course) {
+/* =========================
+   AUTHENTICATION DEMO
+========================= */
 
-    alert(
-      course +
-      "\n\nThis course will be connected to Google Classroom in the next stage."
-    );
+function showRegister(){
 
-  }
+document.getElementById("loginForm")
+.classList.add("hidden");
 
+document.getElementById("registerForm")
+.classList.remove("hidden");
 
-  function certificate() {
-
-    alert(
-      "Certificate Centre\n\n" +
-      "Google Drive certificate integration will be connected in a later stage."
-    );
-
-  }
+}
 
 
-  function askAI() {
+function showLogin(){
 
-    const question =
-      document.getElementById("aiQuestion").value.trim();
+document.getElementById("registerForm")
+.classList.add("hidden");
 
+document.getElementById("loginForm")
+.classList.remove("hidden");
 
-    if (!question) {
-
-      alert(
-        "Please enter your compliance question."
-      );
-
-      return;
-
-    }
+}
 
 
-    alert(
-      "KOMPLI AI\n\n" +
-      "Your question:\n\n" +
-      question +
-      "\n\n" +
-      "Gemini AI integration will be connected in the next stage."
-    );
+/* =========================
+   REGISTER
+========================= */
 
-  }
+function register(){
+
+const name =
+document.getElementById("regName").value.trim();
+
+const email =
+document.getElementById("regEmail").value.trim();
+
+const org =
+document.getElementById("regOrg").value.trim();
+
+const password =
+document.getElementById("regPassword").value;
+
+
+if(!name || !email || !org || !password){
+
+alert("Please complete all required fields.");
+
+return;
+
+}
+
+
+/*
+DEMO ONLY
+
+We are NOT storing passwords.
+
+Google Authentication will replace this
+in the production version.
+*/
+
+localStorage.setItem(
+"kompliDemoUser",
+JSON.stringify({
+name:name,
+email:email,
+organization:org
+})
+);
+
+alert(
+"Registration successful.\n\n" +
+"Welcome to KOMPLI, " + name + "."
+);
+
+showLogin();
+
+document.getElementById("loginEmail").value=email;
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(){
+
+const email =
+document.getElementById("loginEmail").value.trim();
+
+const password =
+document.getElementById("loginPassword").value;
+
+
+if(!email || !password){
+
+alert(
+"Please enter your email and password."
+);
+
+return;
+
+}
+
+
+let user =
+localStorage.getItem("kompliDemoUser");
+
+
+if(user){
+
+user=JSON.parse(user);
+
+showDashboard(user.name);
+
+}else{
+
+showDashboard(
+email.split("@")[0]
+);
+
+}
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function showDashboard(name){
+
+document.getElementById("authPage")
+.classList.add("hidden");
+
+document.getElementById("dashboard")
+.style.display="block";
+
+document.getElementById("welcomeName")
+.innerText=
+"Welcome back, " + name + ".";
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+document.getElementById("dashboard")
+.style.display="none";
+
+document.getElementById("authPage")
+.classList.remove("hidden");
+
+document.getElementById("loginPassword").value="";
+
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+function togglePassword(id){
+
+const input =
+document.getElementById(id);
+
+if(input.type==="password"){
+
+input.type="text";
+
+event.target.innerText="HIDE";
+
+}else{
+
+input.type="password";
+
+event.target.innerText="SHOW";
+
+}
+
+}
+
+
+/* =========================
+   FORGOT PASSWORD
+========================= */
+
+function forgotPassword(){
+
+alert(
+"Password recovery will be connected to Google authentication."
+);
+
+}
+
+
+/* =========================
+   COURSE
+========================= */
+
+function comingSoon(course){
+
+alert(
+course +
+"\n\nThis course will be connected to Google Classroom."
+);
+
+}
+
+
+function certificate(){
+
+alert(
+"Certificate Centre\n\n" +
+"Certificate integration will be connected to Google Drive."
+);
+
+}
+
+
+/* =========================
+   AI
+========================= */
+
+function askAI(){
+
+const question =
+document.getElementById("aiQuestion")
+.value.trim();
+
+
+if(!question){
+
+alert(
+"Please enter your compliance question."
+);
+
+return;
+
+}
+
+
+alert(
+"KOMPLI AI\n\n" +
+"Your question:\n\n" +
+question +
+"\n\nGemini integration will be connected in the next stage."
+);
+
+}
 
 </script>
-
 
 </body>
 
