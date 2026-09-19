@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KOMPLI | Learner Portal</title>
+  <title>KOMPLI | Learner Dashboard</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,13 +17,18 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
+      background: #ffffff;
+      color: #111111;
+      line-height: 1.5;
     }
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header {
       background: #ffffff;
-      border-bottom: 1px solid #e5e8ef;
+      border-bottom: 2px solid #e30613;
       padding: 18px 6%;
       display: flex;
       justify-content: space-between;
@@ -29,16 +36,29 @@
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: 1px;
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #e30613;
     }
 
     .tagline {
       font-size: 10px;
-      color: #777;
+      color: #111111;
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+    .demo-badge {
+      background: #e30613;
+      color: #ffffff;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 800;
       letter-spacing: 1px;
-      margin-top: 3px;
+      margin-right: 15px;
     }
 
     .profile {
@@ -47,138 +67,219 @@
       gap: 12px;
     }
 
+    .profile-name {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
     .avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #172033;
-      color: white;
+      background: #e30613;
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
+      font-weight: 800;
     }
+
+    /* =========================
+       MAIN
+    ========================= */
 
     main {
       max-width: 1200px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 45px 25px;
     }
 
     .welcome {
       margin-bottom: 30px;
     }
 
-    .welcome h1 {
-      font-size: 32px;
+    .welcome-label {
+      color: #e30613;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
       margin-bottom: 8px;
     }
 
-    .welcome p {
-      color: #697386;
+    .welcome h1 {
+      font-size: 34px;
+      margin-bottom: 7px;
+      color: #111111;
     }
+
+    .welcome p {
+      color: #555555;
+      font-size: 16px;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
 
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-bottom: 35px;
+      margin-bottom: 42px;
     }
 
     .stat {
-      background: white;
-      padding: 24px;
-      border-radius: 14px;
-      border: 1px solid #e5e8ef;
+      background: #ffffff;
+      border: 1px solid #dddddd;
+      border-top: 4px solid #e30613;
+      padding: 25px;
+      border-radius: 10px;
     }
 
     .stat-number {
-      font-size: 30px;
-      font-weight: 800;
-      margin-bottom: 6px;
+      font-size: 32px;
+      font-weight: 900;
+      color: #e30613;
+      margin-bottom: 5px;
     }
 
     .stat-label {
-      color: #697386;
+      color: #444444;
       font-size: 14px;
+      font-weight: 600;
     }
 
+    /* =========================
+       SECTION
+    ========================= */
+
     section {
-      margin-bottom: 35px;
+      margin-bottom: 42px;
     }
 
     section h2 {
-      font-size: 22px;
+      font-size: 23px;
       margin-bottom: 18px;
+      color: #111111;
     }
 
+    .section-label {
+      color: #e30613;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      margin-bottom: 5px;
+    }
+
+    /* =========================
+       COURSES
+    ========================= */
+
     .course {
-      background: white;
-      border: 1px solid #e5e8ef;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 12px;
+      background: #ffffff;
+      border: 1px solid #dddddd;
+      border-left: 5px solid #e30613;
+      border-radius: 10px;
+      padding: 21px;
+      margin-bottom: 13px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 20px;
+
+      transition: 0.2s ease;
+    }
+
+    .course:hover {
+      border-color: #e30613;
+      box-shadow: 0 5px 18px rgba(227, 6, 19, 0.08);
     }
 
     .course-info h3 {
-      margin-bottom: 6px;
+      font-size: 17px;
+      margin-bottom: 5px;
     }
 
     .course-info p {
-      color: #697386;
-      font-size: 14px;
+      color: #666666;
+      font-size: 13px;
     }
 
     .status {
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
     }
 
     .pending {
-      color: #c27b00;
+      color: #e30613;
     }
 
     .completed {
-      color: #16804b;
+      color: #111111;
     }
 
-    button {
-      border: none;
-      border-radius: 8px;
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    button,
+    .primary,
+    .secondary {
+
+      border-radius: 7px;
       padding: 11px 20px;
+      font-weight: 800;
+      font-size: 13px;
       cursor: pointer;
-      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .primary {
-      background: #172033;
-      color: white;
+      background: #e30613;
+      color: #ffffff;
+      border: 2px solid #e30613;
+    }
+
+    .primary:hover {
+      background: #ffffff;
+      color: #e30613;
     }
 
     .secondary {
-      background: #eef1f6;
-      color: #172033;
+      background: #ffffff;
+      color: #e30613;
+      border: 2px solid #e30613;
     }
 
+    .secondary:hover {
+      background: #e30613;
+      color: #ffffff;
+    }
+
+    /* =========================
+       AI SECTION
+    ========================= */
+
     .ai {
-      background: #172033;
-      color: white;
-      border-radius: 16px;
-      padding: 28px;
+      background: #e30613;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 32px;
     }
 
     .ai h2 {
+      color: #ffffff;
       margin-bottom: 8px;
     }
 
     .ai p {
-      color: #c8ceda;
+      color: #ffffff;
       margin-bottom: 20px;
+      opacity: 0.95;
     }
 
     .ai-box {
@@ -189,19 +290,104 @@
     .ai-box input {
       flex: 1;
       padding: 14px;
-      border-radius: 8px;
-      border: none;
-      font-size: 15px;
+      border-radius: 7px;
+      border: 2px solid #ffffff;
+      font-size: 14px;
+      outline: none;
     }
+
+    .ai-box button {
+      background: #ffffff;
+      color: #e30613;
+      border: 2px solid #ffffff;
+    }
+
+    .ai-box button:hover {
+      background: #e30613;
+      color: #ffffff;
+    }
+
+    /* =========================
+       DEMO NOTICE
+    ========================= */
+
+    .demo-notice {
+      background: #ffffff;
+      border: 2px solid #e30613;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .demo-icon {
+      width: 38px;
+      height: 38px;
+      background: #e30613;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .demo-notice strong {
+      display: block;
+      color: #e30613;
+      margin-bottom: 2px;
+    }
+
+    .demo-notice span {
+      font-size: 13px;
+      color: #444444;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
+      border-top: 2px solid #e30613;
       text-align: center;
-      padding: 30px;
-      color: #8992a3;
-      font-size: 13px;
+      padding: 28px;
+      color: #555555;
+      font-size: 12px;
     }
 
+    footer strong {
+      color: #e30613;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 700px) {
+
+      header {
+        padding: 15px 20px;
+      }
+
+      .demo-badge {
+        display: none;
+      }
+
+      .profile-name {
+        display: none;
+      }
+
+      main {
+        padding: 30px 18px;
+      }
+
+      .welcome h1 {
+        font-size: 28px;
+      }
+
       .stats {
         grid-template-columns: 1fr;
       }
@@ -211,120 +397,296 @@
         align-items: flex-start;
       }
 
+      .course .primary,
+      .course .secondary {
+        width: 100%;
+        text-align: center;
+      }
+
       .ai-box {
         flex-direction: column;
       }
+
+      .ai-box button {
+        width: 100%;
+      }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
   <div>
-    <div class="logo">KOMPLI</div>
-    <div class="tagline">LEARN. COMPLY. GROW.</div>
+
+    <div class="logo">
+      KOMPLI
+    </div>
+
+    <div class="tagline">
+      LEARN. COMPLY. GROW.
+    </div>
+
   </div>
 
+
   <div class="profile">
-    <div>
-      <strong>Demo Learner</strong>
+
+    <div class="demo-badge">
+      DEMO CLASS
     </div>
-    <div class="avatar">DL</div>
+
+    <div class="profile-name">
+      Demo Learner
+    </div>
+
+    <div class="avatar">
+      DL
+    </div>
+
   </div>
 
 </header>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
 
-  <div class="welcome">
-    <h1>Welcome back 👋</h1>
-    <p>Your compliance learning dashboard</p>
+
+  <!-- DEMO NOTICE -->
+
+  <div class="demo-notice">
+
+    <div class="demo-icon">
+      D
+    </div>
+
+    <div>
+
+      <strong>
+        DEMO CLASS
+      </strong>
+
+      <span>
+        You are viewing the KOMPLI demonstration learning environment.
+      </span>
+
+    </div>
+
   </div>
 
+
+  <!-- WELCOME -->
+
+  <div class="welcome">
+
+    <div class="welcome-label">
+      LEARNER DASHBOARD
+    </div>
+
+    <h1>
+      Welcome back.
+    </h1>
+
+    <p>
+      Complete your mandatory compliance training and stay compliant.
+    </p>
+
+  </div>
+
+
+  <!-- STATS -->
 
   <div class="stats">
 
     <div class="stat">
-      <div class="stat-number">4</div>
-      <div class="stat-label">Assigned Courses</div>
+
+      <div class="stat-number">
+        4
+      </div>
+
+      <div class="stat-label">
+        Assigned Courses
+      </div>
+
     </div>
 
-    <div class="stat">
-      <div class="stat-number">75%</div>
-      <div class="stat-label">Compliance Complete</div>
-    </div>
 
     <div class="stat">
-      <div class="stat-number">3</div>
-      <div class="stat-label">Certificates</div>
+
+      <div class="stat-number">
+        75%
+      </div>
+
+      <div class="stat-label">
+        Compliance Complete
+      </div>
+
+    </div>
+
+
+    <div class="stat">
+
+      <div class="stat-number">
+        3
+      </div>
+
+      <div class="stat-label">
+        Certificates
+      </div>
+
     </div>
 
   </div>
 
 
+  <!-- COURSES -->
+
   <section>
 
-    <h2>My Mandatory Training</h2>
+    <div class="section-label">
+      MY LEARNING
+    </div>
 
+    <h2>
+      Mandatory Training
+    </h2>
+
+
+    <!-- POSH -->
 
     <div class="course">
 
       <div class="course-info">
-        <div class="status pending">● PENDING</div>
-        <h3>POSH Awareness</h3>
-        <p>Workplace Prevention of Sexual Harassment</p>
+
+        <div class="status pending">
+          ● PENDING
+        </div>
+
+        <h3>
+          POSH Awareness
+        </h3>
+
+        <p>
+          Workplace Prevention of Sexual Harassment
+        </p>
+
       </div>
 
-      <button class="primary" onclick="startCourse('POSH Awareness')">
-        Start
+
+      <a
+        class="primary"
+        href="https://classroom.google.com/u/5/c/ODczMjExNTE5Mjcy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        START COURSE
+      </a>
+
+    </div>
+
+
+    <!-- CYBER -->
+
+    <div class="course">
+
+      <div class="course-info">
+
+        <div class="status pending">
+          ● IN PROGRESS
+        </div>
+
+        <h3>
+          Cyber Security Awareness
+        </h3>
+
+        <p>
+          Safe digital behaviour and information security
+        </p>
+
+      </div>
+
+
+      <button
+        class="primary"
+        onclick="comingSoon('Cyber Security Awareness')"
+      >
+        CONTINUE
       </button>
 
     </div>
 
 
+    <!-- CODE OF CONDUCT -->
+
     <div class="course">
 
       <div class="course-info">
-        <div class="status pending">● IN PROGRESS</div>
-        <h3>Cyber Security Awareness</h3>
-        <p>Safe digital behaviour and information security</p>
+
+        <div class="status completed">
+          ● COMPLETED
+        </div>
+
+        <h3>
+          Code of Conduct & Ethics
+        </h3>
+
+        <p>
+          Professional behaviour and workplace ethics
+        </p>
+
       </div>
 
-      <button class="primary" onclick="startCourse('Cyber Security Awareness')">
-        Continue
+
+      <button
+        class="secondary"
+        onclick="certificate()"
+      >
+        CERTIFICATE
       </button>
 
     </div>
 
 
-    <div class="course">
-
-      <div class="course-info">
-        <div class="status completed">● COMPLETED</div>
-        <h3>Code of Conduct & Ethics</h3>
-        <p>Professional behaviour and workplace ethics</p>
-      </div>
-
-      <button class="secondary" onclick="viewCertificate()">
-        Certificate
-      </button>
-
-    </div>
-
+    <!-- DATA PRIVACY -->
 
     <div class="course">
 
       <div class="course-info">
-        <div class="status completed">● COMPLETED</div>
-        <h3>Data Privacy Awareness</h3>
-        <p>Responsible handling of personal information</p>
+
+        <div class="status completed">
+          ● COMPLETED
+        </div>
+
+        <h3>
+          Data Privacy Awareness
+        </h3>
+
+        <p>
+          Responsible handling of personal information
+        </p>
+
       </div>
 
-      <button class="secondary" onclick="viewCertificate()">
-        Certificate
+
+      <button
+        class="secondary"
+        onclick="certificate()"
+      >
+        CERTIFICATE
       </button>
 
     </div>
@@ -332,14 +694,23 @@
   </section>
 
 
+  <!-- AI -->
+
   <section class="ai">
 
-    <h2>🤖 Ask Kompli AI</h2>
+    <div class="section-label" style="color:#ffffff;">
+      KOMPLI AI
+    </div>
+
+    <h2>
+      Ask Kompli AI
+    </h2>
 
     <p>
-      Your compliance learning assistant. Ask questions about your training,
-      policies or compliance topics.
+      Your compliance learning assistant.
+      Ask questions about policies, training or compliance.
     </p>
+
 
     <div class="ai-box">
 
@@ -349,58 +720,98 @@
         placeholder="Example: Explain POSH in simple language..."
       >
 
-      <button class="primary" onclick="askAI()">
-        Ask Kompli AI
+
+      <button
+        onclick="askAI()"
+      >
+        ASK AI
       </button>
 
     </div>
 
   </section>
 
+
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-  KOMPLI Compliance Learning & Management Platform
+
+  <strong>
+    KOMPLI
+  </strong>
+
+  <br><br>
+
+  Compliance Learning & Management Platform
+
+  <br>
+
+  © 2026 KOMPLI
+
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-function startCourse(course) {
-  alert(
-    "Course selected: " +
-    course +
-    "\n\nGoogle Classroom integration will be connected in the next stage."
-  );
-}
+  function comingSoon(course) {
 
-function viewCertificate() {
-  alert(
-    "Certificate Centre\n\n" +
-    "Google Drive certificate integration will be connected in a later stage."
-  );
-}
+    alert(
+      course +
+      "\n\nThis course will be connected to Google Classroom in the next stage."
+    );
 
-function askAI() {
-
-  const question =
-    document.getElementById("aiQuestion").value.trim();
-
-  if (!question) {
-    alert("Please enter your question.");
-    return;
   }
 
-  alert(
-    "Kompli AI\n\nYour question:\n" +
-    question +
-    "\n\nGemini integration will be connected in a later stage."
-  );
 
-}
+  function certificate() {
+
+    alert(
+      "Certificate Centre\n\n" +
+      "Google Drive certificate integration will be connected in a later stage."
+    );
+
+  }
+
+
+  function askAI() {
+
+    const question =
+      document.getElementById("aiQuestion").value.trim();
+
+
+    if (!question) {
+
+      alert(
+        "Please enter your compliance question."
+      );
+
+      return;
+
+    }
+
+
+    alert(
+      "KOMPLI AI\n\n" +
+      "Your question:\n\n" +
+      question +
+      "\n\n" +
+      "Gemini AI integration will be connected in the next stage."
+    );
+
+  }
 
 </script>
 
+
 </body>
+
 </html>
