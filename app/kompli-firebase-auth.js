@@ -5,7 +5,7 @@
   "use strict";
 
   const config = {
-    apiKey: "AIzaSyBya8W8JkYyhua_5DX6FDlRCWsb3vW8CE",
+    apiKey: "AIzaSyBya8W8JkYyhua_5DX6FDlRCWsb3vW8C2E",
     authDomain: "kompli-99d42.firebaseapp.com",
     projectId: "kompli-99d42",
     storageBucket: "kompli-99d42.firebasestorage.app",
